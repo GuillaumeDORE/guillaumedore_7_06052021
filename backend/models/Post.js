@@ -16,18 +16,6 @@ class Post {
         connection.execute(`DELETE FROM Posts WHERE post_id = ?`,[post_id], callback)
     };
 
-    static like(post_id,callback){
-        connection.execute(`UPDATE Posts 
-                            SET post_likes = post_likes+1
-                            WHERE post_id = ?`,[post_id], callback)
-    };
-
-    static dislike(post_id,callback){
-        connection.execute(`UPDATE Posts 
-                            SET post_dislikes = post_dislikes+1
-                            WHERE post_id = ?`,[post_id], callback)
-    };
-
     static getAll(callback){
         connection.execute(`SELECT * FROM Posts`, callback)
     };

@@ -29,10 +29,10 @@ exports.signup = (req, res, next) => {
             .then(hash => {
                 User.insert(req.body.contact.pseudo, req.body.contact.first_name, req.body.contact.last_name, MaskData.maskEmail2(req.body.contact.email, emailMask2Options), hash, function (err, result, fields) {
                     if (err) {
-                        res.status(400).json({err})
+                        res.status(400).json({ err })
                         return console.log(err);
                     }
-                    res.status(201).json({message: 'Utilisateur créé!'})
+                    res.status(201).json({ message: 'Utilisateur créé!' })
                     return console.log(result);
                 });
             })

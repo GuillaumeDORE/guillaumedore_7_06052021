@@ -1,9 +1,9 @@
 const sendForm = function () {
     let formContact = {
-            pseudo: 'Pierrepaul',
-            last_name: 'pierre',
+            pseudo: 'paul',
+            last_name: 'ierre',
             first_name: 'paul',
-            email: 'test@test.com',
+            email: 'tet@test.com',
             user_password: 'TEst*1234'
         };
         fetch('http://localhost:3000/api/auth/signup', {
@@ -28,7 +28,7 @@ const loginForm = function () {
     let formLogin = {
             email: 'test@test.com',
             user_password: 'TEst*1234'
-        };
+            };
         fetch('http://localhost:3000/api/auth/login', {
             method: 'POST',
             body: JSON.stringify({ login: formLogin}),

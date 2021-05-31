@@ -8,7 +8,6 @@ const postCtrl = require('../controllers/post');
 router.post('/',auth ,/*  createAccountLimiter ,*/ postCtrl.new_post);
 router.put('/:post_id',auth ,/*  createAccountLimiter ,*/ postCtrl.update_post);
 router.delete('/:post_id',auth ,/*  createAccountLimiter ,*/ postCtrl.delete_post);
-router.post('/:post_id/like',auth ,/*  createAccountLimiter ,*/ postCtrl.like_post);
 router.get('/',auth ,/*  createAccountLimiter ,*/ postCtrl.get_all_post);
 router.get('/:post_id',auth ,/*  createAccountLimiter ,*/ postCtrl.get_one_post);
 

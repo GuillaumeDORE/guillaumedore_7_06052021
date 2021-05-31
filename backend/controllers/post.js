@@ -2,7 +2,8 @@ const Post = require('../models/Post');
 
 
 exports.new_post = (req, res, next) => {
-    Post.insert(req.body.post.userId, req.body.post.title, req.body.post.content, function (err, result, fields) {
+    const { userId, title, content } = req.body.post
+    Post.insert(userId, title, content, function (err, result, fields) {
         if (err) {
             res.status(400).json({err})
             return console.log(err);
@@ -13,7 +14,8 @@ exports.new_post = (req, res, next) => {
 };
 
 exports.update_post = (req, res, next) => {
-    Post.update(req.body.post.title, req.body.post.content, {post_id: req.params.post_id}, function (err, result, fields) {
+    const { title, content } = req.body.post
+    Post.update(title, content, {post_id: req.params.post_id}, function (err, result, fields) {
         if (err) {
             res.status(400).json({err})
             return console.log(err);
@@ -24,7 +26,7 @@ exports.update_post = (req, res, next) => {
 };
 
 exports.delete_post = (req, res, next) => {
-    Post.delete({post_id: req.params.post_id}, function (err, result, fields) {
+    Post.delete(req.params.post_id, function (err, result, fields) {
         if (err) {
             res.status(400).json({err})
             return console.log(err);
@@ -40,13 +42,13 @@ exports.get_all_post = (req, res, next) => {
             res.status(400).json({err})
             return console.log(err);
         }
-        res.status(200).json(result[0])
+        res.status(200).json(result)
         return console.log(result);
     });
 };
 
 exports.get_one_post = (req, res, next) => {
-    Post.findOne({post_id: req.params.post_id}, function (err, result, fields) {
+    Post.findOne(req.params.post_id, function (err, result, fields) {
         if (err) {
             res.status(400).json({err})
             return console.log(err);
@@ -55,5 +57,3 @@ exports.get_one_post = (req, res, next) => {
         return console.log(result);
     });
 };
-
-// TO DO : Créer les like et dislikes
