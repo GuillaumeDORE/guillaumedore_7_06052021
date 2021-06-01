@@ -1,14 +1,14 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-require('dotenv').config({ path: '../.env'});
+require('dotenv').config({ path: '../.env' });
 const connection = require('./connection')
 
 const app = express();
 
-const userRoutes = require ('./routes/user');
-const postRoutes = require ('./routes/post');
-// const commentRoutes = require ('./routes/comment');
+const userRoutes = require('./routes/user');
+const postRoutes = require('./routes/post');
+const commentRoutes = require('./routes/comment');
 
 
 
@@ -28,7 +28,7 @@ app.use(bodyParser.json());
 
 app.use('/api/auth', userRoutes);
 app.use('/api/post', postRoutes);
-// app.use('/api/comment', commentRoutes);
+app.use('/api/comment', commentRoutes);
 
 
 module.exports = app;

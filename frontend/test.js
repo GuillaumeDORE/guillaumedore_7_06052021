@@ -1,18 +1,18 @@
 const sendForm = function () {
     let formContact = {
-            pseudo: 'paul',
-            last_name: 'ierre',
-            first_name: 'paul',
-            email: 'tet@test.com',
-            user_password: 'TEst*1234'
-        };
-        fetch('http://localhost:3000/api/auth/signup', {
-            method: 'POST',
-            body: JSON.stringify({ contact: formContact}),
-            headers: { 'Content-Type': 'application/json; charset=utf-8' }
-        })
+        pseudo: 'paueefvl',
+        last_name: 'ierrfcee',
+        first_name: 'pacul',
+        email: 'tet@testze.com',
+        user_password: 'TEst*1234'
+    };
+    fetch('http://localhost:3000/api/auth/signup', {
+        method: 'POST',
+        body: JSON.stringify({ contact: formContact }),
+        headers: { 'Content-Type': 'application/json; charset=utf-8' }
+    })
         .then((response) => response.json())
-        .catch (function(error){
+        .catch(function (error) {
             console.log(error);
         })
 };
@@ -26,16 +26,16 @@ confirmer.addEventListener('click', function (e) {
 
 const loginForm = function () {
     let formLogin = {
-            email: 'test@test.com',
-            user_password: 'TEst*1234'
-            };
-        fetch('http://localhost:3000/api/auth/login', {
-            method: 'POST',
-            body: JSON.stringify({ login: formLogin}),
-            headers: { 'Content-Type': 'application/json; charset=utf-8' }
-        })
+        email: 'test@test.com',
+        user_password: 'TEst*1234'
+    };
+    fetch('http://localhost:3000/api/auth/login', {
+        method: 'POST',
+        body: JSON.stringify({ login: formLogin }),
+        headers: { 'Content-Type': 'application/json; charset=utf-8' }
+    })
         .then((response) => response.json())
-        .catch (function(error){
+        .catch(function (error) {
             console.log(error);
         })
 };
