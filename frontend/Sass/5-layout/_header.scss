@@ -1,0 +1,28 @@
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 98%;
+    padding: 1%;
+    border-bottom: 1px solid rgba($darkblue, 0.2);
+    box-shadow: 4px 4px 8px $shadow1;
+
+    &__logo {
+        height: 30px;
+    }
+    &__right {
+        display: flex;
+        & > a,
+        button {
+            margin: 0 5px;
+        }
+    }
+    &__search {
+        display: flex;
+    }
+
+    &__signup,
+    &__login {
+        min-width: 100px;
+    }
+}

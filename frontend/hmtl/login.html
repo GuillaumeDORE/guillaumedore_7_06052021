@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <title>GROUPOMANIA - Un réseau social pour ses employés!</title>
+    <link rel="stylesheet" href="../style.css">
+    <title>GROUPOMANIA - Se connecter!</title>
 </head>
 
 <body>
@@ -37,57 +37,34 @@
             </svg>
         </div>
         <div class="head__right">
-            <button class="head__search button"><img src="./img/icons/search.svg" alt="icon de loupe"></button>
-            <a href="./index.html" class="head__homepage button"><img src="./img/icons/home.svg"
+            <button class="head__search button"><img src="../img/icons/search.svg" alt="icon de loupe"></button>
+            <a href="../index.html" class="head__homepage button"><img src="../img/icons/home.svg"
                     alt="icon de maison"></a>
-            <a href="./hmtl/signup.html" class="head__signup button">Se créer un compte</a>
-            <a href="./hmtl/login.html" class="head__login button">Se connecter</a>
+            <a href="./signup.html" class="head__signup button">Se créer un compte</a>
         </div>
     </header>
-    <main class="main">
-        <section class="post">
-            <header class="post__header">
-                <h2 class="post__title">Le titre du post</h2>
-                <div class="post__meta">
-                    <p class="post__meta_category">Categorie du post</p>
-                    <p class="post__meta_postdate">05/06/2021 15:12</p>
-                </div>
-            </header>
-            <article class="post__content">
-                <img src="./img/montagne.jpg" alt="montagne">
-            </article>
-            <footer class="post__footer">
-                <p class="post__user_creator">By: Nom du createur de ce post</p>
-                <div class="post__comment">
-                    <p class="post__comment_number">00 <img src="./img/icons/comment.svg" alt="icon commentaires"></p>
-                    <button class="post__comment_btn button">Commenter</button>
-                </div>
-            </footer>
-        </section>
-        <section class="post">
-            <header class="post__header">
-                <h2 class="post__title">Le titre du post</h2>
-                <div class="post__meta">
-                    <p class="post__meta_category">Categorie du post</p>
-                    <p class="post__meta_postdate">05/06/2021 15:12</p>
-                </div>
-            </header>
-            <article class="post__content">
-                <img src="./img/montagne.jpg" alt="montagne">
-            </article>
-            <footer class="post__footer">
-                <button class="post__comment button">Commentaires</button>
-            </footer>
-        </section>
+    <main class="login">
+        <form class="login__container" action="/" method="POST">
+
+            <label for="email">Email</label>
+            <div class="login__input_groupe">
+                <img src="../img/icons/email.svg" alt="icon email">
+                <input name="email" type="email" placeholder="votre-email@email.com" required>
+            </div>
+
+            <label for="user_password">Mot de passe</label>
+            <div class="login__input_groupe">
+                <img src="../img/icons/password.svg" alt="icon mot de passe">
+                <input name="user_password" type="password" placeholder="********" required>
+            </div>
+
+            <button class="button" id="signup" type="submit">Se connecter</button>
+
+        </form>
+
+        <a href="./login.html" class="button" id="login">Se créer un compte</a>
+
     </main>
-
-
-    <!-- 
-    <button id="confirmer">send</button>
-    <button id="login">login</button> -->
-
-    <!-- <script src="test.js"></script> -->
-
 </body>
 
 </html>
