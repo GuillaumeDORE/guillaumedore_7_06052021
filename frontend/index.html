@@ -36,17 +36,18 @@
                 </g>
             </svg>
         </div>
-        <div class="head__right">
+        <nav class="head__right">
             <button class="head__search button"><img src="./img/icons/search.svg" alt="icon de loupe"></button>
             <a href="./index.html" class="head__homepage button"><img src="./img/icons/home.svg"
                     alt="icon de maison"></a>
             <a href="./hmtl/signup.html" class="head__signup button">Se créer un compte</a>
             <a href="./hmtl/login.html" class="head__login button">Se connecter</a>
-        </div>
+        </nav>
     </header>
     <main class="main">
         <section class="post">
             <header class="post__header">
+                <a href="./hmtl/comment.html"></a>
                 <h2 class="post__title">Le titre du post</h2>
                 <div class="post__meta">
                     <p class="post__meta_category">Categorie du post</p>
@@ -76,7 +77,11 @@
                 <img src="./img/montagne.jpg" alt="montagne">
             </article>
             <footer class="post__footer">
-                <button class="post__comment button">Commentaires</button>
+                <p class="post__user_creator">By: Nom du createur de ce post</p>
+                <div class="post__comment">
+                    <p class="post__comment_number">00 <img src="./img/icons/comment.svg" alt="icon commentaires"></p>
+                    <button class="post__comment_btn button">Commenter</button>
+                </div>
             </footer>
         </section>
     </main>
