@@ -6,6 +6,7 @@ const connection = require('./connection')
 
 const app = express();
 
+const auth = require('./controllers/user')
 const userRoutes = require('./routes/user');
 const postRoutes = require('./routes/post');
 const commentRoutes = require('./routes/comment');
@@ -26,6 +27,10 @@ connection.connect(function (err) {
 app.use(cors());
 app.use(bodyParser.json());
 
+// jwt
+app.use('/jwtid', auth.requireAuth)
+
+//Routes
 app.use('/api/auth', userRoutes);
 app.use('/api/post', postRoutes);
 app.use('/api/comment', commentRoutes);

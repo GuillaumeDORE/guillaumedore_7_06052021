@@ -65,3 +65,19 @@ exports.login = (req, res, next) => {
             .catch(error => res.status(500).json({ error }))
     })
 };
+
+exports.requireAuth = (req, res, next) => {
+    const token = req.headers.authorization.split(' ')[1];
+    if (token) {
+        const decodedToken = jwt.verify(token, `${process.env.TOKEN_SECRET}`);
+        const userId = decodedToken.userId;
+        if (req.body.userId && req.body.userId !== userId) {
+            throw 'User ID non valable!';
+        } else {
+            res.status(200).json({ userId: userId })
+        }
+    }
+    else {
+        res.status(400).json('No token');
+    }
+};
