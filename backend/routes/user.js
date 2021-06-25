@@ -6,8 +6,5 @@ const userCtrl = require('../controllers/user');
 
 router.post('/signup'/* , createAccountLimiter */, userCtrl.signup);
 router.post('/login', userCtrl.login);
-// jwt
-router.post('/jwtid', userCtrl.requireAuth)
-
 
 module.exports = router;

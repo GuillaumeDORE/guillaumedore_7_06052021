@@ -2,7 +2,7 @@ const Post = require('../models/Post');
 
 
 exports.new_post = (req, res, next) => {
-    const { userId, title, content } = req.body.post
+    const { userId, title, content } = req.body.post;
     Post.insert(userId, title, content, function (err, result, fields) {
         if (err) {
             res.status(400).json({ err })
@@ -14,7 +14,7 @@ exports.new_post = (req, res, next) => {
 };
 
 exports.update_post = (req, res, next) => {
-    const { title, content } = req.body.post
+    const { title, content } = req.body.post;
     Post.update(title, content, req.params.post_id, function (err, result, fields) {
         if (err) {
             res.status(400).json({ err })

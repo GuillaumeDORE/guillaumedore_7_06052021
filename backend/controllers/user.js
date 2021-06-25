@@ -1,7 +1,6 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const passwordValidator = require('password-validator');
-const MaskData = require('maskdata');
 const User = require('../models/User');
 
 
@@ -16,18 +15,11 @@ schema
     .has().symbols()
     .is().not().oneOf(['Passw0rd', 'Password123', 'Azerty123']);
 
-const emailMask2Options = {
-    maskWith: "*",
-    unmaskedStartCharactersBeforeAt: 3,
-    unmaskedEndCharactersAfterAt: 2,
-    maskAtTheRate: false
-};
-
 exports.signup = (req, res, next) => {
     if (schema.validate(req.body.contact.user_password)) {
         bcrypt.hash(req.body.contact.user_password, 10)
             .then(hash => {
-                User.insert(req.body.contact.pseudo, req.body.contact.first_name, req.body.contact.last_name, MaskData.maskEmail2(req.body.contact.email, emailMask2Options), hash, function (err, result, fields) {
+                User.insert(req.body.contact.pseudo, req.body.contact.first_name, req.body.contact.last_name, req.body.contact.email, hash, function (err, result, fields) {
                     if (err) {
                         res.status(400).json({ err })
                         return console.log(err);
@@ -43,7 +35,7 @@ exports.signup = (req, res, next) => {
 };
 
 exports.login = (req, res, next) => {
-    User.findOne(MaskData.maskEmail2(req.body.login.email, emailMask2Options), function (err, result, fields) {
+    User.findOne(req.body.login.email, function (err, result, fields) {
         if (err) {
             return console.log(err);
         }
@@ -57,27 +49,12 @@ exports.login = (req, res, next) => {
                 }
                 res.status(200).json({
                     userId: result[0].user_id,
-                    token: jwt.sign({ userId: result[0].user_id },
+                    isAdmin: result[0].isdmin,
+                    token: jwt.sign({ userId: result[0].user_id, isAdmin: result[0].is_admin },
                         process.env.TOKEN_SECRET, { expiresIn: '24h' }
                     )
                 });
             })
             .catch(error => res.status(500).json({ error }))
     })
-};
-
-exports.requireAuth = (req, res, next) => {
-    const token = req.headers.authorization.split(' ')[1];
-    if (token) {
-        const decodedToken = jwt.verify(token, `${process.env.TOKEN_SECRET}`);
-        const userId = decodedToken.userId;
-        if (req.body.userId && req.body.userId !== userId) {
-            throw 'User ID non valable!';
-        } else {
-            res.status(200).json({ userId: userId })
-        }
-    }
-    else {
-        res.status(400).json('No token');
-    }
 };
