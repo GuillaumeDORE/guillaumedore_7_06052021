@@ -14,7 +14,7 @@ const SignUpForm = () => {
     const [password, setPassword] = useState('');
     const [controlPassword, setcontrolPassword] = useState('');
 
-    const handleRegister = async (e) => {
+    const handleRegister = (e) => {
         e.preventDefault();
 
         // TO DO creer const des erreur pour les intégrer dans des span pour afficher les message d'erreurs
@@ -22,8 +22,7 @@ const SignUpForm = () => {
 
         if (password !== controlPassword) passwordConfirmError.innerHTML = "Les mots de passe ne correspondent pas";
         else {
-            console.log(JSON.stringify({ contact: { pseudo, first_name: firstName, last_name: lastName, email, user_password: password } }));
-            await fetch('http://localhost:5000/api/auth/signup', {
+            fetch(`${process.env.REACT_APP_API_URL}api/auth/signup`, {
                 method: 'POST',
                 body: JSON.stringify({ contact: { pseudo, first_name: firstName, last_name: lastName, email, user_password: password } }),
                 headers: { 'Content-Type': 'application/json; charset=utf-8' }
@@ -46,7 +45,7 @@ const SignUpForm = () => {
 
     return (
         <>
-            { formsumbit ? (
+            {formsumbit ? (
                 <>
                     <SignInForm />
                     <h4 className="success">Enregistrement réussi, veuillez-vous connecter.</h4>

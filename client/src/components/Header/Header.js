@@ -1,10 +1,18 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import LogOut from '../Log/LogOut';
 
-const Header = () => {
+const Header = ({ userId, setUserId }) => {
+
+    useEffect(() => {
+        console.log(userId);
+    }, [userId]
+    )
+
+
     return (
         <header className="head">
-            <div className="head__logo">
+            <NavLink to="/" exact className="head__logo">
                 <svg data-v-5f19e91b="" xmlns="http://www.w3.org/2000/svg" width="485" height="78" viewBox="0 0 485 78">
 
                     <g data-v-5f19e91b="" id="35fa3215-a46c-2dc7-0ca7-44149903aade" fill="black"
@@ -25,7 +33,7 @@ const Header = () => {
                         </switch>
                     </g>
                 </svg>
-            </div>
+            </NavLink>
             <nav className="head__right">
                 <button className="head__search button">
                     <img src="./img/icons/search.svg" alt="icon de loupe" />
@@ -33,7 +41,11 @@ const Header = () => {
                 <NavLink to="/" exact className="head__homepage button">
                     <img src="./img/icons/home.svg" alt="icon de maison" ></img>
                 </NavLink>
-                <NavLink to="/profil" className="head__login button">Se connecter</NavLink>
+                {userId ? (
+                    <LogOut setUserId={setUserId} />
+                ) : (
+                    <NavLink to="/profil" className="head__login button">Se connecter</NavLink>
+                )}
             </nav>
         </header>
     );
