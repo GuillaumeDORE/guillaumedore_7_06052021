@@ -9,7 +9,7 @@ const commentCtrl = require('../controllers/comment');
 router.post('/', auth, /*  createAccountLimiter ,*/ commentCtrl.new_comment);
 router.put('/:comment_id', auth, checkCommentUser,/*  createAccountLimiter ,*/ commentCtrl.update_comment);
 router.delete('/:comment_id', auth, checkCommentUser,/*  createAccountLimiter ,*/ commentCtrl.delete_comment);
-router.get('/', auth,/*  createAccountLimiter ,*/ commentCtrl.get_all_comment);
+router.get('/:post_id', auth,/*  createAccountLimiter ,*/ commentCtrl.get_all_comment);
 router.get('/:comment_id', auth,/*  createAccountLimiter ,*/ commentCtrl.get_one_comment);
 
 

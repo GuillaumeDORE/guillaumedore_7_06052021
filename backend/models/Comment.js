@@ -16,8 +16,9 @@ class Comment {
         connection.execute(`DELETE FROM Comments WHERE comment_id = ?`, [comment_id], callback)
     };
 
-    static getAll(callback) {
-        connection.execute(`SELECT * FROM Comments`, callback)
+    static getAll(post_id, callback) {
+        connection.execute(`SELECT * FROM Comments 
+                            WHERE post_id=?`, [post_id], callback)
     };
 
     static findOne(comment_id, callback) {

@@ -35,7 +35,7 @@ exports.delete_comment = (req, res, next) => {
 };
 
 exports.get_all_comment = (req, res, next) => {
-    Comment.getAll(function (err, result, fields) {
+    Comment.getAll(req.params.post_id, function (err, result, fields) {
         if (err) {
             res.status(400).json({ err })
             return console.log(err);

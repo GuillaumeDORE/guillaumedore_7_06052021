@@ -1,14 +1,7 @@
-import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import LogOut from '../Log/LogOut';
 
 const Header = ({ userId, setUserId }) => {
-
-    useEffect(() => {
-        console.log(userId);
-    }, [userId]
-    )
-
 
     return (
         <header className="head">

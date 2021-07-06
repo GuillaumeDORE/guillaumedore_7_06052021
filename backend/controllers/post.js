@@ -2,7 +2,15 @@ const Post = require('../models/Post');
 
 
 exports.new_post = (req, res, next) => {
-    const { userId, title, content } = req.body.post;
+    const newPost = JSON.parse(req.body.post);
+    const post = {
+        title: newPost.title,
+        userId: newPost.userId,
+        content: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
+    };
+    console.log(post);
+    const { userId, title, content } = post;
+
     Post.insert(userId, title, content, function (err, result, fields) {
         if (err) {
             res.status(400).json({ err })

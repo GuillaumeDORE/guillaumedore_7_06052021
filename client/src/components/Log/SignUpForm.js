@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import SignInForm from './SignInForm';
 
-
-//req.body.contact.pseudo, req.body.contact.first_name, req.body.contact.last_name, MaskData.maskEmail2(req.body.contact.email, emailMask2Options), hash
-
-
 const SignUpForm = () => {
     const [formsumbit, setFormSubmit] = useState(false);
     const [pseudo, setPseudo] = useState('');
