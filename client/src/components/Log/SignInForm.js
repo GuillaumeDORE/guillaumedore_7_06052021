@@ -16,7 +16,8 @@ const SignInForm = () => {
     const handleLogin = (e) => {
         e.preventDefault();
         dispatch(login(email, password))
-    }
+    };
+
     useEffect(() => {
         if (isLoggedIn) {
             setUserConnected(true);

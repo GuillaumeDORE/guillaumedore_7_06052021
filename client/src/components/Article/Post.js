@@ -31,7 +31,6 @@ const Post = () => {
             <header className="post__header">
                 <h2 className="post__title">{post.post_title}</h2>
                 <div className="post__meta">
-                    {/* <p className="post__meta_category">Categorie du post</p> */}
                     <p className="post__meta_postdate">{dateParser(date)}</p>
                 </div>
             </header>
