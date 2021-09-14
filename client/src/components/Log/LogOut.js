@@ -1,11 +1,12 @@
 import React from 'react';
+import { useDispatch } from "react-redux";
+import { logout as logoutAction } from "../../actions/user.actions";
 
 const LogOut = ({ setUserId }) => {
+    const dispatch = useDispatch();
+
     const logout = () => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('userID');
-        localStorage.removeItem('isAdmin');
-        setUserId(null)
+        dispatch(logoutAction())
     }
 
     return (

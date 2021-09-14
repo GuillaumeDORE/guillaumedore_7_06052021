@@ -1,8 +1,10 @@
+import { useSelector } from "react-redux";
 import { NavLink } from 'react-router-dom';
 import LogOut from '../Log/LogOut';
 import homeIcon from '../../img/icons/home.svg';
 
-const Header = ({ userId, setUserId }) => {
+const Header = () => {
+    const { isLoggedIn } = useSelector(state => state.userReducer);
 
     return (
         <header className="head">
@@ -32,8 +34,8 @@ const Header = ({ userId, setUserId }) => {
                 <NavLink to="/" exact className="head__homepage button">
                     <img src={homeIcon} alt="icon de maison" ></img>
                 </NavLink>
-                {userId ? (
-                    <LogOut setUserId={setUserId} />
+                {isLoggedIn ? (
+                    <LogOut />
                 ) : (
                     <NavLink to="/profil" className="head__login button">Se connecter</NavLink>
                 )}

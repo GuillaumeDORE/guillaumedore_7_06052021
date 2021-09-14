@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../actions/user.actions";
 import emailIcon from '../../img/icons/email.svg';
 import passwordIcon from '../../img/icons/password.svg';
 
@@ -8,33 +10,20 @@ const SignInForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [userConnected, setUserConnected] = useState(false);
-
+    const dispatch = useDispatch();
+    const { isLoggedIn } = useSelector(state => state.userReducer);
 
     const handleLogin = (e) => {
         e.preventDefault();
-        fetch(`${process.env.REACT_APP_API_URL}api/auth/login`, {
-            method: 'POST',
-            body: JSON.stringify({ login: { email, user_password: password } }),
-            headers: { 'Content-Type': 'application/json; charset=utf-8' }
-        })
-            .then((res) => {
-                if (res.body.error) {
-                    console.log(res.body.error);
-                    // TODO: GESTION ERREUR EN BACK + creation span erreur pour afficher le message d'erreur à l'utilisateur
-                } else {
-                    return res.json();
-                }
-            })
-            .then((data) => {
-                localStorage.setItem('token', JSON.stringify(data.token));
-                localStorage.setItem('userID', JSON.stringify(data.userId));
-                localStorage.setItem('isAdmin', JSON.stringify(data.isAdmin));
-                setUserConnected(true);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+        dispatch(login(email, password))
     }
+    useEffect(() => {
+        if (isLoggedIn) {
+            setUserConnected(true);
+        } else {
+            setUserConnected(false);
+        }
+    }, [isLoggedIn])
 
     return (
         <>
