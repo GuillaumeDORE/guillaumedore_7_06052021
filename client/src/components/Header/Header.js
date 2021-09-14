@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import LogOut from '../Log/LogOut';
+import homeIcon from '../../img/icons/home.svg';
 
 const Header = ({ userId, setUserId }) => {
 
@@ -28,11 +29,8 @@ const Header = ({ userId, setUserId }) => {
                 </svg>
             </NavLink>
             <nav className="head__right">
-                <button className="head__search button">
-                    <img src="./img/icons/search.svg" alt="icon de loupe" />
-                </button>
                 <NavLink to="/" exact className="head__homepage button">
-                    <img src="./img/icons/home.svg" alt="icon de maison" ></img>
+                    <img src={homeIcon} alt="icon de maison" ></img>
                 </NavLink>
                 {userId ? (
                     <LogOut setUserId={setUserId} />

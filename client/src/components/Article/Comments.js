@@ -24,6 +24,7 @@ const Comments = () => {
 
     return (
         <section className="comments">
+            <h2>Commentaires</h2>
             {(!!comments[0]) && comments.map((comment) => {
                 return <Comment comment={comment} key={comment.comment_id} />
             })

@@ -5,6 +5,7 @@ import Footer from './Footer';
 const Post = () => {
     const [post, setPost] = useState({});
     let date = new Date(post.post_creationdate);
+    const user_id = localStorage.getItem('userID');
 
     useEffect(() => {
 
@@ -25,7 +26,6 @@ const Post = () => {
             .catch((err) => console.log(err));
     }, [])
 
-
     return (
         <article className="post" >
             <header className="post__header">
@@ -38,7 +38,8 @@ const Post = () => {
             <article className="post__content">
                 <img src={post.post_content} alt={post.post_content} />
             </article>
-            <Footer />
+            {(user_id == post.user_id) ? (<Footer post={post} />) : (null)}
+
         </article>
     );
 };

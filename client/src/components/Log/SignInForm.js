@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
+import emailIcon from '../../img/icons/email.svg';
+import passwordIcon from '../../img/icons/password.svg';
 
 
 const SignInForm = () => {
@@ -42,13 +44,13 @@ const SignInForm = () => {
                 <form action="" onSubmit={handleLogin} className="login__form">
                     <label htmlFor="email">Email</label>
                     <div className="login__input_groupe">
-                        <img src="../img/icons/email.svg" alt="icon email" />
+                        <img src={emailIcon} alt="icon email" />
                         <input name="email" type="email" placeholder="votre-email@email.com" required onChange={(e) => setEmail(e.target.value)} value={email} />
                     </div>
 
                     <label htmlFor="user_password">Mot de passe</label>
                     <div className="login__input_groupe">
-                        <img src="../img/icons/password.svg" alt="icon mot de passe" />
+                        <img src={passwordIcon} alt="icon mot de passe" />
                         <input name="user_password" type="password" placeholder="********" required onChange={(e) => setPassword(e.target.value)} value={password} />
                     </div>
 

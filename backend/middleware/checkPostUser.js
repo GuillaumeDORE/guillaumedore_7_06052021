@@ -8,6 +8,7 @@ module.exports = (req, res, next) => {
         const userId = decodedToken.userId;
         const isAdmin = decodedToken.isAdmin;
 
+        console.log(req.params);
         Post.findOne(req.params.post_id, function (err, result, fields) {
             if (err) {
                 res.status(400).json({ err })
