@@ -6,6 +6,7 @@ import updateIcon from '../../img/icons/update.svg';
 const Footer = (props) => {
     const [modalUpdate, setModalUpdate] = useState(false);
     const [update, setUpdate] = useState(false);
+    const [modalDelete, setModalDelete] = useState(false);
 
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
@@ -59,7 +60,33 @@ const Footer = (props) => {
 
     const handleModal = (e) => {
         setModalUpdate(!modalUpdate);
-    }
+    };
+
+    const handleModalDelete = (e) => {
+        setModalDelete(!modalDelete);
+    };
+
+    const handlePostDelete = (e) => {
+
+        e.preventDefault();
+        let authToken = localStorage.getItem('token');
+        authToken = authToken.replace(/"/g, "");
+
+        fetch(`${process.env.REACT_APP_API_URL}api/post/${props.post.post_id}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': 'Bearer ' + authToken
+            }
+        })
+            .then(() => {
+                setModalUpdate(false);
+                setUpdate(true);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+
+    };
 
 
     return (
@@ -83,9 +110,15 @@ const Footer = (props) => {
                             <button className="button" type="submit">Modifier votre post!</button>
                         </form>
                     }
-                    <button className="post__button button">
+                    <button className="post__button button" onClick={handleModalDelete}>
                         <img src={deleteIcon} alt="icon de suppression" />
                     </button>
+                    {modalDelete &&
+                        <>
+                            <button className="button" onClick={handlePostDelete}>Supprimer</button>
+                            <button className="button">Annuler</button>
+                        </>
+                    }
                 </footer>
             )}
         </>
