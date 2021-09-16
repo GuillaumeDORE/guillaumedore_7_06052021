@@ -28,7 +28,11 @@ const Thread = () => {
             ) : (
                 <main className="main">
                     <FormPost />
-                    {(!!posts[0]) && posts.map((post) => {
+                    {(!!posts[0]) && posts.sort((a, b) => {
+                        let c = new Date(a.post_creationdate);
+                        let d = new Date(b.post_creationdate);
+                        return d - c;
+                    }).map((post) => {
                         return <Post post={post} key={post.post_id} />
                     })
                     }

@@ -58,7 +58,7 @@ const FormPost = () => {
             </div>
 
             <div className="post-form__input_groupe">
-                <input name="content" type="file" accept=".jpg, .jpeg, .png" placeholder="Votre contenu" required onChange={(e) => handlePicture(e)} />
+                <input name="content" type="file" accept=".jpg, .jpeg, .png, .gif" placeholder="Votre contenu" required onChange={(e) => handlePicture(e)} />
             </div>
 
             <button className="button" type="submit">Créer un post!</button>

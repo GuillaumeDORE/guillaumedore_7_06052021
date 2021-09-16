@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Routes from './components/Routes';
 
 const App = () => {

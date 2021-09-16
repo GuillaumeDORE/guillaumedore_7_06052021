@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { dateParser } from '../../utils/utils';
 import Footer from './Footer';
 
 const Post = () => {
     const [post, setPost] = useState({});
     let date = new Date(post.post_creationdate);
-    const user_id = localStorage.getItem('userID');
+    const user_id = useSelector(state => state.userReducer.user.userId);
+    const isAdmin = useSelector(state => state.userReducer.user.isAdmin);
 
     useEffect(() => {
 
@@ -37,7 +39,7 @@ const Post = () => {
             <article className="post__content">
                 <img src={post.post_content} alt={post.post_content} />
             </article>
-            {(user_id == post.user_id) ? (<Footer post={post} />) : (null)}
+            {(user_id === post.user_id || isAdmin === 1) ? (<Footer post={post} />) : (null)}
 
         </article>
     );

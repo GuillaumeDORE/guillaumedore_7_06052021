@@ -102,7 +102,7 @@ const Footer = (props) => {
                             </div>
 
                             <div className="post-update__input_groupe">
-                                <input name="content" type="file" accept=".jpg, .jpeg, .png" placeholder="Votre contenu" required onChange={(e) => handlePicture(e)} />
+                                <input name="content" type="file" accept=".jpg, .jpeg, .png, .gif" placeholder="Votre contenu" required onChange={(e) => handlePicture(e)} />
                             </div>
 
                             <button className="button" type="submit">Modifier votre post!</button>

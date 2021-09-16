@@ -60,6 +60,7 @@ const Comments = () => {
                 .then((res) => {
                     console.log(res);
                     setNewComment('');
+                    window.location.reload();
                 })
                 .catch((err) => {
                     console.log(err);
@@ -84,7 +85,11 @@ const Comments = () => {
                     <button className="button" type="submit">Créer un commentaire!</button>
                 </form>
             }
-            {(!!comments[0]) && comments.map((comment) => {
+            {(!!comments[0]) && comments/*.sort((a, b) => {
+                let c = new Date(a.comment_creationdate);
+                let d = new Date(b.comment_creationdate);
+                return d - c;
+            })*/.map((comment) => {
                 return <Comment comment={comment} key={comment.comment_id} />
             })
             }
