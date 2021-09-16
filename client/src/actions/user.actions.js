@@ -17,6 +17,7 @@ export const login = (email, password) => (dispatch) => {
             }
         })
         .then((data) => {
+            localStorage.setItem('user', JSON.stringify(data));
             localStorage.setItem('token', JSON.stringify(data.token));
             localStorage.setItem('userID', JSON.stringify(data.userId));
             localStorage.setItem('isAdmin', JSON.stringify(data.isAdmin));
@@ -37,6 +38,7 @@ export const login = (email, password) => (dispatch) => {
 };
 
 export const logout = () => (dispatch) => {
+    localStorage.removeItem('user');
     localStorage.removeItem('token');
     localStorage.removeItem('userID');
     localStorage.removeItem('isAdmin');
