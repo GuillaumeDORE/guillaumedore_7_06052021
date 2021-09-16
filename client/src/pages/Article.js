@@ -11,7 +11,7 @@ const Article = () => {
     return (
         <>
             {isLoggedIn === false ? (
-                <Redirect to="/profil" />
+                <Redirect to="/login" />
             ) : (
                 <>
                     <Post />

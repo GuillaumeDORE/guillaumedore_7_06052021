@@ -58,3 +58,17 @@ exports.login = (req, res, next) => {
             .catch(error => res.status(500).json({ error }))
     })
 };
+
+exports.deleteUser = (req, res, next) => {
+    const token = req.headers.authorization.split(' ')[1];
+    const decodedToken = jwt.verify(token, `${process.env.TOKEN_SECRET}`);
+    const userId = decodedToken.userId;
+    User.delete(userId, function (err, result, fields) {
+        if (err) {
+            return console.log(err);
+        } else {
+            res.status(200).json({ message: 'Utilisateur supprimé!!' })
+            return console.log(result);;
+        }
+    })
+}

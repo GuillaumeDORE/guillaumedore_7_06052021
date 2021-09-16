@@ -37,7 +37,7 @@ const Header = () => {
                 {isLoggedIn ? (
                     <LogOut />
                 ) : (
-                    <NavLink to="/profil" className="head__login button">Se connecter</NavLink>
+                    <NavLink to="/login" className="head__login button">Se connecter</NavLink>
                 )}
             </nav>
         </header>

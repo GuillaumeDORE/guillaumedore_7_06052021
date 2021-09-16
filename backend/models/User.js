@@ -8,6 +8,9 @@ class User {
     static findOne(email, callback) {
         connection.execute(`SELECT * FROM Users WHERE email = ?`, [email], callback)
     };
+    static delete(user_id, callback) {
+        connection.execute(`DELETE FROM Users WHERE user_id = ?`, [user_id], callback)
+    };
 
 }
 module.exports = User;

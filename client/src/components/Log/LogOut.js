@@ -6,7 +6,7 @@ const LogOut = ({ setUserId }) => {
     const dispatch = useDispatch();
 
     const logout = () => {
-        dispatch(logoutAction())
+        dispatch(logoutAction());
     }
 
     return (

@@ -5,12 +5,12 @@ module.exports = (req, res, next) => {
         const token = req.headers.authorization.split(' ')[1];
         const decodedToken = jwt.verify(token, `${process.env.TOKEN_SECRET}`);
         const userId = decodedToken.userId;
-        if (req.body.userId && req.body.userId !== userId){
+        if (!userId) {
             throw 'User ID non valable!';
         } else {
             next();
         }
     } catch (error) {
-        res.status(401).json({ error: error | 'Requête non authentifiée!' });
+        res.status(401).json('Requête non authentifiée!');
     }
 };

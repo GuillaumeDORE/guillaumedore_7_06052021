@@ -24,7 +24,7 @@ const Thread = () => {
     return (
         <>
             {isLoggedIn === false ? (
-                <Redirect to="/profil" />
+                <Redirect to="/login" />
             ) : (
                 <main className="main">
                     <FormPost />
