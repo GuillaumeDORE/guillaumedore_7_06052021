@@ -1,6 +1,6 @@
 import React from 'react';
 import { dateParser } from '../../utils/utils';
-import Footer from './Footer';
+import CommentFooter from './CommentFooter';
 
 
 const Comment = ({ comment }) => {
@@ -13,7 +13,9 @@ const Comment = ({ comment }) => {
                 <p className="comments__comment-date">Posté le: {dateParser(date)}</p>
             </header>
             <p className="comments__comment-content">{comment.comment_content}</p>
+            <CommentFooter comment={comment} />
         </div>
+
     );
 };
 

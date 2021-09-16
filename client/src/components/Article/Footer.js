@@ -11,7 +11,6 @@ const Footer = (props) => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const userId = localStorage.getItem('userID');
-    console.log(props);
 
     // UPDATE 
     const handlePostUpdate = (e) => {

@@ -49,8 +49,6 @@ const Comments = () => {
                     content
                 }
             }
-            console.log(JSON.stringify(comment));
-
             fetch(`${process.env.REACT_APP_API_URL}api/comment/`, {
                 method: 'POST',
                 body: JSON.stringify(comment),
