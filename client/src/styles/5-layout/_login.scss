@@ -55,3 +55,9 @@
         margin-top: 2rem;
     }
 }
+.alert {
+    color: rgb(189, 10, 10);
+    box-shadow: 4px 4px 8px $shadow1 inset, -4px -4px 8px $shadow2 inset;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+}

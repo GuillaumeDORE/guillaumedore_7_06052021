@@ -23,6 +23,7 @@ export default function userReducer(state = initialState, action) {
                 ...state,
                 isLoggedIn: false,
                 user: null,
+                message: payload.message,
             };
         case LOGOUT:
             return {

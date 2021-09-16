@@ -11,11 +11,14 @@ const SignInForm = () => {
     const [password, setPassword] = useState("");
     const [userConnected, setUserConnected] = useState(false);
     const dispatch = useDispatch();
-    const { isLoggedIn } = useSelector(state => state.userReducer);
+    const { isLoggedIn, message } = useSelector(state => state.userReducer);
 
     const handleLogin = (e) => {
         e.preventDefault();
         dispatch(login(email, password))
+        if (message) {
+            console.log(message);
+        }
     };
 
     useEffect(() => {
@@ -45,6 +48,7 @@ const SignInForm = () => {
                     </div>
 
                     <button className="button" id="signup" type="submit">Connexion</button>
+                    {message && <div className="alert">{message}</div>}
                 </form>
             )
             }

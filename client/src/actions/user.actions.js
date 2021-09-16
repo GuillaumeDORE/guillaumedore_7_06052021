@@ -17,6 +17,13 @@ export const login = (email, password) => (dispatch) => {
             }
         })
         .then((data) => {
+            if (data.error) {
+                dispatch({
+                    type: LOGIN_FAIL,
+                    payload: { message: data.error },
+                })
+                return;
+            }
             localStorage.setItem('user', JSON.stringify(data));
             localStorage.setItem('token', JSON.stringify(data.token));
             localStorage.setItem('userID', JSON.stringify(data.userId));
@@ -31,7 +38,9 @@ export const login = (email, password) => (dispatch) => {
                 console.log(err);
                 dispatch({
                     type: LOGIN_FAIL,
+                    payload: { message: "error" },
                 })
+                return Promise.reject();
             }
         )
 
