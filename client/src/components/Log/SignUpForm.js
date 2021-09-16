@@ -13,6 +13,7 @@ const SignUpForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [controlPassword, setcontrolPassword] = useState('');
+    const [message, setMessage] = useState('');
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -28,15 +29,16 @@ const SignUpForm = () => {
                 headers: { 'Content-Type': 'application/json; charset=utf-8' }
             })
                 .then((res) => {
-                    if (res.body.error) {
+                    if (res.body.status === 201) {
                         console.log(res.body.error);
-                        // TODO: GESTION ERREUR EN BACK + creation span erreur pour afficher le message d'erreur
-                    } else {
                         setFormSubmit(true);
+                    } else {
+                        return setMessage(res.statusText);
                     }
                 })
                 .catch((err) => {
                     console.log(err);
+                    e.preventDefault();
                 });
         }
     }
@@ -92,6 +94,9 @@ const SignUpForm = () => {
                     </div>
 
                     <button className="button" id="signup" type="submit">Créer un compte</button>
+                    {message && (
+                        <div>{message}</div>
+                    )}
                 </form>
             )}
         </>

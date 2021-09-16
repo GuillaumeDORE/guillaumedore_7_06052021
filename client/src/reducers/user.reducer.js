@@ -17,6 +17,7 @@ export default function userReducer(state = initialState, action) {
                 ...state,
                 isLoggedIn: true,
                 user: payload.user,
+                message: null,
             };
         case LOGIN_FAIL:
             return {

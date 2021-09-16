@@ -38,13 +38,13 @@ const Profil = () => {
                 <main className="main">
 
                     <button className="post__button button" onClick={handleModalDelete}>
-                        <img src={deleteIcon} alt="icon de suppression" />
+                        <img src={deleteIcon} alt="icon de suppression" /> Supprimer votre compte
                     </button>
                     {modalDelete &&
-                        <>
+                        <div>
                             <button className="button" onClick={handleUserDelete}>Supprimer</button>
                             <button className="button">Annuler</button>
-                        </>
+                        </div>
                     }
                 </main>
             ) : (

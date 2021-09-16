@@ -3,6 +3,7 @@ const cors = require('cors');
 require('dotenv').config({ path: '../.env' });
 const connection = require('./connection');
 const path = require('path');
+const helmet = require("helmet");
 
 const app = express();
 
@@ -22,7 +23,7 @@ connection.connect(function (err) {
   console.log('connected as id ' + connection.threadId);
 });
 
-
+app.use(helmet());
 app.use(cors());
 app.options('*', cors());
 app.use(express.json());
