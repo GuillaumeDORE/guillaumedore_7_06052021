@@ -13,8 +13,7 @@ const Footer = (props) => {
     const userId = localStorage.getItem('userID');
     console.log(props);
 
-    // const post_id = post.post_id;
-
+    // UPDATE 
     const handlePostUpdate = (e) => {
 
         e.preventDefault();
@@ -62,6 +61,7 @@ const Footer = (props) => {
         setModalUpdate(!modalUpdate);
     };
 
+    //DELETE
     const handleModalDelete = (e) => {
         setModalDelete(!modalDelete);
     };
@@ -85,7 +85,6 @@ const Footer = (props) => {
             .catch((err) => {
                 console.log(err);
             });
-
     };
 
 

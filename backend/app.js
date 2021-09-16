@@ -24,6 +24,7 @@ connection.connect(function (err) {
 
 
 app.use(cors());
+app.options('*', cors());
 app.use(express.json());
 app.use(
   express.urlencoded({

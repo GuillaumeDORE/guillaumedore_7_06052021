@@ -2,7 +2,7 @@ import { LOGIN_SUCCESS } from "../actions/user.actions";
 import { LOGIN_FAIL } from "../actions/user.actions";
 import { LOGOUT } from "../actions/user.actions";
 
-const user = JSON.parse(localStorage.getItem("user"));
+const user = JSON.parse(localStorage.getItem("userID"));
 
 const initialState = user
     ? { isLoggedIn: true, user }

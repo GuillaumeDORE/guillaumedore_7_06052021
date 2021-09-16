@@ -1,6 +1,7 @@
 const Comment = require('../models/Comment');
 
 exports.new_comment = (req, res, next) => {
+    console.log(req);
     const { post_Id, userId, content } = req.body.comment
     Comment.insert(post_Id, userId, content, function (err, result, fields) {
         if (err) {

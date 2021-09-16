@@ -13,7 +13,6 @@ const Comment = ({ comment }) => {
                 <p className="comments__comment-date">Posté le: {dateParser(date)}</p>
             </header>
             <p className="comments__comment-content">{comment.comment_content}</p>
-            <Footer />
         </div>
     );
 };
