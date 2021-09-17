@@ -35,13 +35,13 @@ const Profil = () => {
     return (
         <>
             {isLoggedIn ? (
-                <main className="main">
+                <main className="main_profil">
 
-                    <button className="post__button button" onClick={handleModalDelete}>
+                    <button className="profil-button button" onClick={handleModalDelete}>
                         <img src={deleteIcon} alt="icon de suppression" /> Supprimer votre compte
                     </button>
                     {modalDelete &&
-                        <div>
+                        <div className="profil-button__modal">
                             <button className="button" onClick={handleUserDelete}>Supprimer</button>
                             <button className="button">Annuler</button>
                         </div>

@@ -82,7 +82,7 @@ const Comments = () => {
                     <div className="comment-form__input_groupe">
                         <input name="title" type="text" placeholder="Votre commentaire" required onChange={(e) => setNewComment(e.target.value)} value={newComment} />
                     </div>
-                    <button className="button" type="submit">Créer un commentaire!</button>
+                    <button className="button comment-form__button" type="submit">Créer un commentaire!</button>
                 </form>
             }
             {(!!comments[0]) && comments/*.sort((a, b) => {

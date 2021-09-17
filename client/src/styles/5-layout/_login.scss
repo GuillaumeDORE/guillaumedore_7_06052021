@@ -29,7 +29,7 @@
     }
     &__input_groupe {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         margin: 0.5rem 0;
         & input {
@@ -60,4 +60,17 @@
     box-shadow: 4px 4px 8px $shadow1 inset, -4px -4px 8px $shadow2 inset;
     padding: 0.5rem;
     margin: 0.5rem 0;
+}
+.text-success {
+    margin-left: 0.5rem;
+    color: green;
+}
+
+.text-danger {
+    margin-left: 0.5rem;
+    color: red;
+}
+.success {
+    color: green;
+    margin-top: 1rem;
 }
