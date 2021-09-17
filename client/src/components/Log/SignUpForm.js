@@ -49,7 +49,7 @@ const SignUpForm = () => {
         const lastNameImput = document.getElementById('nom');
         const lastNameInvalidMessage = 'Invalide, ne peut contenir que des lettres ( seul un tiret, espace ou apostrophe autorisé)';
 
-        const emailRegExp = new RegExp("^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$", "i");
+        const emailRegExp = new RegExp("^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$", "i");//eslint-disable-line
         const emailImput = document.getElementById('email');
         const emailInvalidMessage = 'Invalide, doit correspondre à une adresse email valide';
 
