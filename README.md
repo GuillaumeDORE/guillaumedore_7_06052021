@@ -14,7 +14,7 @@ Pour utiliser correctement l'API, veuillez suivre ces instructions :
  5 - Selectionner les schemas Comments Posts et Users
  7 - Selectionner Start Import en bas à droite  
  
- (pour créer un utilisateur administrateur il faut le créer a partir de la bases de donnée avec comme valeur 1 à isAdmin)
+ (pour créer un utilisateur administrateur il faut le créer a partir de la bases de donnée avec comme valeur 1 à is_admin)
 
  ## groupomania - .env  
 1 - Pour le frontend, ajouter dans le dossier /client un fichier .env et ajouter dedans: REACT_APP_API_URL=http://localhost:5000/ (si déploiement ne pas rendre cette donnée publique)  
