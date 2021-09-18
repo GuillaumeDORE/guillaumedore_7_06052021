@@ -7,10 +7,10 @@ import Profil from '../../pages/Profil';
 import Header from '../Header/Header';
 
 
-const index = ({ userId, setUserId }) => {
+const index = () => {
     return (
         <Router>
-            <Header userId={userId} setUserId={setUserId} />
+            <Header />
             <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/login" exact component={Login} />
